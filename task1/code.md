@@ -1,68 +1,104 @@
-1. University Scholarship Allocation
-1. Problem Statement
-Design a system that evaluates applicants using aggregate marks, minimum subject marks, attendance, and
-family-income criteria. It ranks eligible students and resolves ties using attendance.
-Assumptions / Rules
-Eligibility rules used in this example: aggregate marks ‡ 80, attendance ‡ 75%, minimum subject marks ‡ 60, and
-annual family income £ n2,50,000. Rank by aggregate marks (highest first), then attendance (highest first).
-2. Algorithm
-1. Start.
-2. Read the number of students.
-3. For each student, read name, aggregate marks, attendance, minimum subject marks, and family income.
-4. Check all four eligibility conditions.
-5. If every condition is satisfied, add the student to the eligible list; otherwise mark the student as not eligible.
-6. Sort eligible students by aggregate marks and then attendance, both in descending order.
-7. Display eligible students with ranks and list students who are not eligible.
-8. Stop.
-   Mermaid Flowchart Code
-3. flowchart TD
-    N0(["START"])<br>
-    N1["Input number of students and each student's details"]<br>
-    N0 --> N1<br>
-    N2{"All eligibility conditions satisfied?"}<br>
-    N1 --> N2<br>
-    N3["Yes fi Add student to eligible list; No fi Mark not eligible"]<br>
-    N2 -->|Yes / No as applicable| N3<br>
-    N4["Repeat until all students are processed"]<br>
-    N3 --> N4<br>
-    N5["Sort eligible students by marks, then attendance"]<br>
-    N4 --> N5<br>
-    N6["Display ranked eligible list and ineligible students"]<br>
-    N5 --> N6<br>
-    N7(["STOP"])<br>
-    N6 --> N7<br>
-5. Pseudocode
-START<br>
-INPUT number_of_students<br>
-eligible = empty list<br>
-ineligible = empty list<br>
-FOR each student<br>
-    INPUT name, aggregate, attendance, subject_min, income<br>
-    IF aggregate >= 80 AND attendance >= 75<br>
-       AND subject_min >= 60 AND income <= 250000<br>
-        ADD (name, aggregate, attendance) TO eligible<br>
-    ELSE<br>
-        ADD name TO ineligible<br>
-    END IF<br>
-END FOR<br>
-SORT eligible by aggregate descending,<br>
-     then attendance descending<br>
-DISPLAY eligible students with ranks<br>
-DISPLAY ineligible students<br>
-STOP<br>
-7. Sample Input<br>
-Enter number of students: 3
-Student 1: Ravi, marks 90, attendance 85,
-subject marks 70, income 200000
-Student 2: Priya, marks 85, attendance 90,
-subject marks 65, income 150000
-Student 3: Kumar, marks 70, attendance 80,
-subject marks 65, income 100000
-8. Sample Output<br>
-Eligible Scholarship Students
-1 Ravi 90.0 85.0
-2 Priya 85.0 90.0
-Not eligible: ['Kumar']
-9. Conclusion
-The program checks scholarship eligibility using all specified conditions and ranks eligible students by aggregate
-marks, using attendance to break ties
+# Case Study: Student Marks Matrix Analysis
+
+## 1. Problem Statement
+
+Develop a Python program to analyse a matrix of student marks across multiple subjects. The program should calculate the total and average marks of each student (row-wise statistics), calculate the average marks of each subject (column-wise statistics), identify the top-performing student, and detect subjects whose average marks are below a specified threshold.
+
+## 2. Algorithm
+
+1. **Start** the program.
+2. Initialize a matrix containing marks for each student across different subjects.
+3. Store the student names and subject names in lists.
+4. Calculate the total marks of each student by adding the marks in each row.
+5. Calculate each student's average marks.
+6. Calculate the average marks for each subject by adding the marks in each column and dividing by the number of students.
+7. Identify the student with the highest average marks.
+8. Set the low-performance threshold to 60 marks.
+9. Identify subjects whose average marks are below 60.
+10. Display the student-wise statistics, subject-wise statistics, top performer, and low-performing subjects.
+11. **Stop** the program.
+
+
+## 3. Sample Input
+
+The program uses the following predefined data.
+
+**Student names:** Ravi, Sita, Kiran, Priya
+
+**Subjects:** Python, Maths, Physics
+
+**Marks matrix:**
+
+| Student | Python | Maths | Physics |
+|---|---:|---:|---:|
+| Ravi | 85 | 78 | 90 |
+| Sita | 65 | 55 | 60 |
+| Kiran | 92 | 88 | 95 |
+| Priya | 70 | 45 | 50 |
+
+**Low-performance threshold:** 60 marks.
+
+*Note: This program uses predefined input, so you do not need to type the marks when running it.*
+
+## 4. Sample Output
+
+```text
+STUDENT MARKS MATRIX ANALYSIS
+--------------------------------------------------
+
+Marks Matrix:
+Student Python  Maths   Physics
+Ravi    85      78      90
+Sita    65      55      60
+Kiran   92      88      95
+Priya   70      45      50
+
+1. STUDENT-WISE STATISTICS
+Ravi - Total: 253 Average: 84.33
+Sita - Total: 180 Average: 60.0
+Kiran - Total: 275 Average: 91.67
+Priya - Total: 165 Average: 55.0
+
+2. TOP-PERFORMING STUDENT
+Kiran with average marks: 91.67
+
+3. SUBJECT-WISE STATISTICS
+Python - Total: 312 Average: 78.0
+Maths - Total: 266 Average: 66.5
+Physics - Total: 295 Average: 73.75
+
+4. LOW-PERFORMING SUBJECTS
+(Average marks below 60)
+No low-performing subjects found.
+```
+
+**Why are there no low-performing subjects?**
+
+Python has an average of 78, Maths has 66.5, and Physics has 73.75. All three averages are above the threshold of 60 marks.
+
+## 5. Mermaid Flowchart Code
+
+Copy the following code into a Mermaid-compatible editor to generate a flowchart.
+ ```mermaid
+flowchart TD
+    A([Start]) --> B[Initialize Student Names, Subject Names and Marks Matrix]
+    B --> C[Calculate Row-wise Student Totals and Averages]
+    C --> D[Find Highest Student Average]
+    D --> E[Calculate Column-wise Subject Averages]
+    E --> F{Is Subject Average Below 60?}
+    F -- Yes --> G[Display Low-performing Subject]
+    F -- No --> H[Check Next Subject]
+    G --> H
+    H --> I{More Subjects?}
+    I -- Yes --> F
+    I -- No --> J[Display Student and Subject Statistics]
+    J --> K[Display Top-performing Student]
+    K --> L([Stop])
+```
+
+
+## 6. Conclusion
+
+This program analyses student marks using a two-dimensional list (matrix) in Python. It calculates row-wise and column-wise statistics, identifies the student with the highest average, and detects subjects with average marks below 60. It demonstrates the use of lists, nested loops, conditional statements, the `sum()` function, and the `max()` function.
+
+**Important:** The sample output is consistent with the given marks matrix and the threshold of 60 marks.
