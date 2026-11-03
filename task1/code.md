@@ -5,7 +5,7 @@ family-income criteria. It ranks eligible students and resolves ties using atten
 Assumptions / Rules
 Eligibility rules used in this example: aggregate marks ‡ 80, attendance ‡ 75%, minimum subject marks ‡ 60, and
 annual family income £ n2,50,000. Rank by aggregate marks (highest first), then attendance (highest first).
-2. Algorithm<br>
+2. Algorithm
 1. Start.
 2. Read the number of students.
 3. For each student, read name, aggregate marks, attendance, minimum subject marks, and family income.
