@@ -7,7 +7,7 @@ Develop a Python program to calculate hospital bills based on consultation charg
 3. Enter patient name and patient ID.
 4. Enter consultation charges, diagnostic charges, and treatment charges.
 5. Validate that all charges are non-negative.
-6. Calculate the total bill by adding all charges.
+6. Calculate the total bill by adding all charges. 
 7. Apply a 10% concession if the total bill is above ₹10,000.
 8. Calculate the final bill after concession.
 9. Classify patients according to the payment policy:
