@@ -1,105 +1,98 @@
 ## 1. Problem Statement
-Develop a Python program to analyze travel expenses in multiple currencies. The system converts expenses into Indian Rupees (INR) using supplied exchange rates and includes currency conversion fees. It calculates the total travel expenditure, compares planned spending with the available budget, and identifies the largest expense category. Finally, it displays the total expenses and budget status.
+Develop a Python program to calculate the total expenses required for organizing a campus event. The system calculates venue, equipment, catering, transport, and certificate costs. It determines the total event expenditure, participant contributions, and sponsorship amount. It also identifies the sponsorship shortfall and calculates the minimum number of registrations required to break even. Finally, it displays the complete financial report.
 
 ## 2. Algorithm
 1. Start the program.
-2. Enter the travel budget in Indian Rupees.
-3. Enter the number of expense categories.
-4. Enter the following details for each category:
-   - Expense category name.
-   - Expense amount.
-   - Currency type.
-   - Exchange rate.
-5. Convert the expense amount into Indian Rupees using the exchange rate.
-6. Calculate the conversion fee (2% of converted amount).
-7. Calculate the total expense including conversion fees.
-8. Add all expenses to calculate the total travel cost.
-9. Compare total travel cost with the available budget.
-10. Identify the largest expense category.
-11. Display the expense details, total spending, and remaining budget.
-12. Display whether the travel budget is within or above the limit.
-13. Stop the program.
+2. Enter the number of expected participants.
+3. Enter the following event expenses:
+   - Venue cost.
+   - Equipment cost.
+   - Catering cost per participant.
+   - Transport cost per participant.
+   - Certificate cost per participant.
+4. Enter the sponsorship amount.
+5. Enter the registration fee per participant.
+6. Calculate total catering, transport, and certificate costs.
+7. Calculate total event expenses by adding all costs.
+8. Calculate the total sponsorship amount.
+9. Calculate the remaining sponsorship shortfall after deducting sponsorship from total expenses.
+10. Calculate participant contributions using the registration fee.
+11. Calculate the minimum registration count required to break even.
+12. Compare expected participants with the break-even count.
+13. Display the complete financial report.
+14. Stop the program.
 
 ## 3. sample input
-Enter travel budget in INR: 100000
-Enter number of expense categories: 3
+CAMPUS EVENT FINANCIAL PLANNING
 
-Enter Expense Details
-Enter expense category: Hotel
-Enter expense amount: 300
-Enter currency type: USD
-Enter exchange rate to INR: 85
+Enter expected participants: 100
 
-Enter Expense Details
-Enter expense category: Food
-Enter expense amount: 100
-Enter currency type: EUR
-Enter exchange rate to INR: 90
+Enter venue cost: 20000
+Enter equipment cost: 10000
 
-Enter Expense Details
-Enter expense category: Transport
-Enter expense amount: 200
-Enter currency type: USD
-Enter exchange rate to INR: 85
+Enter catering cost per participant: 150
+Enter transport cost per participant: 50
+Enter certificate cost per participant: 20
 
-## 4. sample  output
------- TRAVEL EXPENSE REPORT ------
+Enter sponsorship amount: 15000
+Enter registration fee per participant: 300
 
-Category: Hotel
-Currency: USD
-Converted Amount: Rs. 25500.0
-Conversion Fee: Rs. 510.0
-Total Expense: Rs. 26010.0
+## 4. sample output
+------ CAMPUS EVENT FINANCIAL REPORT ------
 
-Category: Food
-Currency: EUR
-Converted Amount: Rs. 9000.0
-Conversion Fee: Rs. 180.0
-Total Expense: Rs. 9180.0
+Expected Participants: 100
 
-Category: Transport
-Currency: USD
-Converted Amount: Rs. 17000.0
-Conversion Fee: Rs. 340.0
-Total Expense: Rs. 17340.0
+--- Event Expenses ---
 
-Total Travel Expense: Rs. 52530.0
-Travel Budget: Rs. 100000.0
-Remaining Budget: Rs. 47470.0
-Status: Within Budget
+Venue Cost: Rs. 20000.0
+Equipment Cost: Rs. 10000.0
+Catering Cost: Rs. 15000.0
+Transport Cost: Rs. 5000.0
+Certificate Cost: Rs. 2000.0
 
-Largest Expense Category: Hotel
+Total Event Cost: Rs. 52000.0
 
-Travel Budget Analysis Completed.
+--- Financial Details ---
+
+Sponsorship: Rs. 15000.0
+Participant Contributions: Rs. 30000.0
+Registration Fee: Rs. 300.0
+
+Sponsorship Shortfall: Rs. 7000.0
+
+Minimum Registrations for Break-even: 188
+
+Financial Status: Additional Funds Required
+
+Program Completed.
 
 ## 5. Mermaid Flowchart Code
 
 Copy the following code into a Mermaid-compatible editor to generate a flowchart.
  mermaid
  ```mermaid
-
        
     flowchart TD
-    A([Start]) --> B[/Enter Travel Budget/]
-    B --> C[/Enter Number of Expense Categories/]
-    C --> D[/Enter Category, Amount, Currency and Exchange Rate/]
-    D --> E{Valid Amount and Rate?}
-    E -- No --> F[Display Invalid Details]
-    E -- Yes --> G[Convert Amount into INR]
-    G --> H[Calculate 2% Conversion Fee]
-    H --> I[Calculate Total Expense]
-    I --> J[Store Expense Details]
-    F --> K{More Categories?}
-    J --> K
-    K -- Yes --> D
-    K -- No --> L[Calculate Total Travel Expense]
-    L --> M[Identify Largest Expense Category]
-    M --> N{Total Expense <= Budget?}
-    N -- Yes --> O[Display Remaining Budget]
-    N -- No --> P[Display Budget Exceeded]
-    O --> Q[Display Travel Expense Report]
+    A([Start]) --> B[/Enter Expected Participants/]
+    B --> C[/Enter Venue and Equipment Costs/]
+    C --> D[/Enter Catering, Transport and Certificate Costs/]
+    D --> E[/Enter Sponsorship and Registration Fee/]
+    E --> F{Are Inputs Valid?}
+    F -- No --> G[Display Invalid Input]
+    F -- Yes --> H[Calculate Fixed Costs]
+    H --> I[Calculate Varia
+    ble Costs]
+    I --> J[Calculate Total Event Expenses]
+    J --> K[Calculate Participant Contributions]
+    K --> L[Calculate Funding Shortfall]
+    L --> M[Calculate Break-even Registrations]
+    M --> N{Shortfall = 0?}
+    N -- Yes --> O[Budget Covered]
+    N -- No --> P[Additional Funds Required]
+    O --> Q[Display Financial Report]
     P --> Q
-    Q --> R([Stop])
+    G --> R([Stop])
+    Q --> R
 ```
-## 6. Conclusion
-The Multi-Currency Travel Budget Analysis System converts travel expenses from different currencies into Indian Rupees using exchange rates. It calculates conversion fees, total expenses, and remaining budget. It also identifies the largest expense category and checks whether the travel spending is within the planned budget. This Python program helps travelers manage expenses effectively.
+## 10. Conclusion
+The Campus Event Financial Planning System calculates all expenses required for organizing a college event. It determines participant contributions, sponsorship shortfalls, and the minimum number of registrations needed to break even. This Python program helps colleges manage event budgets, control expenses, and plan financial resources effectively.
