@@ -1,4 +1,4 @@
-6. Python Source Code
+1. Python Source Code
 n = int(input("Enter number of students: "))
 eligible = []
 ineligible = []
